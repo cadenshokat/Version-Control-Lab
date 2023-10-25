@@ -13,13 +13,26 @@ def encode_data(number):
     return new_num
 
 
+def decode_data(number):
+    new_num = ''
+
+    for digit in str(number):
+        if int(digit) >= 3:
+            digit = int(digit) - 3
+            new_num += str(digit)
+        else:
+            digit = int(digit) + 7
+            new_num += str(digit)
+
+    return int(new_num)
+
+
 if __name__ == '__main__':
 
     password = str(input('Enter your password: '))
     program = True
 
     while program:
-
         print("1. Encode Password")
         print("2. Decode Password")
         print("3. Quit")
@@ -31,8 +44,16 @@ if __name__ == '__main__':
             new_password = encode_data(password)
             print(f'\nYour password is stored!\n')
 
-        if option == 2:
-            print(decode_data(new_password))
+        elif option == 2:
+            if not new_password:
+                print("Please encode a password first.")
+            else:
+                print(
+                    f"The encoded password is {new_password}, and the original password is {decode_data(new_password)}.")
+                print()
 
-        if option == 3:
+        elif option == 3:
             program = False
+
+        else:
+            print('Invalid Selection!')
