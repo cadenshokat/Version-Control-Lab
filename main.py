@@ -1,3 +1,4 @@
+# Caden Shokat
 def encode_data(number):
     new_num = ''
 
@@ -28,7 +29,7 @@ if __name__ == '__main__':
 
         if option == 1:
             new_password = encode_data(password)
-            print(new_password)
+            print(f'\nYour password is stored!\n')
 
         if option == 2:
             print(decode_data(new_password))
